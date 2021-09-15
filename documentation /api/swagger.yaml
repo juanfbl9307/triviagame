@@ -156,7 +156,7 @@ paths:
         '200':
           description: Array of quizz and questions
   /quizz/results:
-    get:
+    post:
       tags:
       - quizz
       summary: Show the results of user based in the quizz Id
