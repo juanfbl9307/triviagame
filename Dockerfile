@@ -7,4 +7,4 @@ COPY . .
 RUN npm install
 RUN npm install knex -g
 
-ENTRYPOINT ["sh", "/app/server/entrypoint.sh" ]
+ENTRYPOINT ["sh", "entrypoint.sh" ]
