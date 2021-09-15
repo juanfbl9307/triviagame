@@ -14,7 +14,7 @@ tags:
 schemes:
   - http
 paths:
-  /answer/create:
+  /answers/create:
     post:
       tags:
       - answers
@@ -38,7 +38,7 @@ paths:
         '200':
           description: Question asnwered
           
-  /answer/delete:
+  /answers/delete:
     post:
       tags:
       - answers
@@ -57,7 +57,7 @@ paths:
       responses:
         '200':
           description: Answers deleted
-  /answer/update:
+  /answers/update:
     post:
       tags:
       - answers
@@ -78,7 +78,7 @@ paths:
       responses:
         '200':
           description: Answers updated
-  /answer/list:
+  /answers/list:
     get:
       tags:
       - answers
