@@ -42,3 +42,8 @@ Quizz.results = async (quizzId, usernameEmail) => {
     const result = await database.getResults(quizzId, usernameEmail);
     return result;
 }
+
+Quizz.listQuizzes = async () => {
+    const result = await database.listTable("quizzes");
+    return result;
+}
