@@ -36,5 +36,9 @@ quizzController.quizzResults = async (req, res) => {
     }).catch((err) => res.status(500).send('Internal Server error'))
 }
 
-
-
+quizzController.getQuizzQuestions = async (req, res) => {
+    const { quizzId } = req.body;
+    return QuizzServices.quizzQuestions(quizzId).then(result => {
+        res.status(200).send(result)
+    }).catch((err) => res.status(500).send('Internal Server error'))
+}

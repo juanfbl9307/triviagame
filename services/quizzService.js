@@ -148,5 +148,10 @@ QuizzService.userResults = async (quizzId, usernameEmail) => {
     return score;
 };
 
+QuizzService.quizzQuestions = async (quizzId) => {
+    const getQuestions = await Quizz.quizzQuestions(quizzId);
+    return getQuestions;
+};
+
 
 
