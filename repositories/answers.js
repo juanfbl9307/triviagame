@@ -28,6 +28,11 @@ Answer.getQuestionById = async (answerId) => {
     return exist
 };
 
+Answer.getAnswers = async () => {
+    const table = await database.listTable("answers");
+    return table;
+}
+
 
 
 

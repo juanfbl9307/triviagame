@@ -83,6 +83,12 @@ AnswerService.modifyAnswers = async (answerId, response) => {
 };
 
 AnswerService.listAnswers = async () => {
-
+    const allAnswers = await Answers.getAnswers();
+    if (allAnswers) {
+        let response = {
+            message: allAnswers,
+            status: 200
+        }
+        return response
+    }
 }
-
