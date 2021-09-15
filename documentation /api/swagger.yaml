@@ -177,7 +177,7 @@ paths:
         '200':
           description: You have response ${(score / getResults.length) * 100}% of the questions well
   /quizz/questions:
-    get:
+    post:
       tags:
       - quizz
       summary: Show the questions of a quizz based in Id
