@@ -4,6 +4,7 @@
   "description": "questionary for a test ",
   "main": "index.js",
   "scripts": {
+    "migrate": "node migrate.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "devStart": "nodemon index.js"
   },
