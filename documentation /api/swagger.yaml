@@ -1,0 +1,208 @@
+---
+swagger: "2.0"
+info:
+  description: "This is a trivia game for a test of backend, hope you enjoy it. there\
+    \ is the URL and if you want to build the server you can do it cloning the  repository\
+    \ in the local machine and doing a \"docker-compose up\" and it will be listening\
+    \ at port 3000"
+  version: "1.0.5"
+  title: "Trivia Game"
+  contact:
+    email: "juanfbl9307@gmail.com"
+host: "18.223.156.190:3000"
+basePath: "/"
+tags:
+- name: "CRUD"
+schemes:
+- "http"
+paths:
+  /answer/create:
+    post:
+      tags:
+      - "answers"
+      summary: "Creates a new answer to a question."
+      operationId: "answerCreatePOST"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "create"
+        description: "create a new answer based in the id of a question."
+        required: false
+        schema:
+          type: "object"
+          properties:
+            usernameEmail:
+              type: "string"
+            questionId:
+              type: "string"
+            response:
+              type: "string"
+      responses:
+        "200":
+          description: "Question asnwered"
+      x-swagger-router-controller: "Answers"
+  /answer/delete:
+    post:
+      tags:
+      - "answers"
+      summary: "Delete an answer of a question."
+      operationId: "answerDeletePOST"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "delete"
+        description: "delete an existing answer based in the id of a question."
+        required: false
+        schema:
+          type: "object"
+          properties:
+            answerId:
+              type: "string"
+      responses:
+        "200":
+          description: "Answers deleted"
+      x-swagger-router-controller: "Answers"
+  /answer/update:
+    post:
+      tags:
+      - "answers"
+      summary: "Update an answer of a question."
+      operationId: "answerUpdatePOST"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "update"
+        description: "Update an existing answer based in the id of a question."
+        required: false
+        schema:
+          type: "object"
+          properties:
+            answerId:
+              type: "string"
+            response:
+              type: "string"
+      responses:
+        "200":
+          description: "Answers updated"
+      x-swagger-router-controller: "Answers"
+  /answer/list:
+    get:
+      tags:
+      - "answers"
+      summary: "List all answers"
+      operationId: "answerListGET"
+      parameters: []
+      responses:
+        "200":
+          description: "Array of answers"
+      x-swagger-router-controller: "Answers"
+  /quizz/delete:
+    post:
+      tags:
+      - "quizz"
+      summary: "Delete a quizz."
+      operationId: "quizzDeletePOST"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "delete"
+        description: "delete an existing quizz based in the name"
+        required: false
+        schema:
+          type: "object"
+          properties:
+            quizzName:
+              type: "string"
+      responses:
+        "200":
+          description: "Quizz ${name} deleted"
+      x-swagger-router-controller: "Quizz"
+  /quizz/update:
+    post:
+      tags:
+      - "quizz"
+      summary: "Update a quizz."
+      operationId: "quizzUpdatePOST"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "update"
+        description: "Update an existing quizz name based in the old name and generate\
+          \ new questions"
+        required: false
+        schema:
+          type: "object"
+          properties:
+            quizzName:
+              type: "string"
+            newQuizzName:
+              type: "string"
+      responses:
+        "200":
+          description: "Quizz ${quizzName} updated by the name ${newQuizzName}"
+      x-swagger-router-controller: "Quizz"
+  /quizz/create:
+    post:
+      tags:
+      - "quizz"
+      summary: "Create a quizz."
+      operationId: "quizzCreatePOST"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "create"
+        description: "Create a quizz with a name and randoms questions"
+        required: false
+        schema:
+          type: "object"
+          properties:
+            quizzName:
+              type: "string"
+      responses:
+        "200":
+          description: "Quizz ${quizzName} updated by the name ${newQuizzName}"
+      x-swagger-router-controller: "Quizz"
+  /quizz/list:
+    get:
+      tags:
+      - "quizz"
+      summary: "List all quizz and questions."
+      operationId: "quizzListGET"
+      consumes:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Array of quizz and questions"
+      x-swagger-router-controller: "Quizz"
+  /quizz/results:
+    get:
+      tags:
+      - "quizz"
+      summary: "Show the results of user based in the quizz Id"
+      operationId: "quizzResultsGET"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "results"
+        description: "Results of username email with quizz id"
+        required: false
+        schema:
+          type: "object"
+          properties:
+            quizzId:
+              type: "string"
+            usernameEmail:
+              type: "string"
+      responses:
+        "200":
+          description: "You have response ${(score / getResults.length) * 100}% of\
+            \ the questions well"
+      x-swagger-router-controller: "Quizz"

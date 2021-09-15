@@ -8,7 +8,6 @@ routes.post('/answers/delete', AnswersController.deleteAnswer);
 routes.post('/answers/update', AnswersController.updateAnswers);
 routes.get('/answers/list', AnswersController.listAllAnswers);
 
-
 routes.post('/quizz/delete', QuizzController.deleteQuizz);
 routes.post('/quizz/update', QuizzController.updateQuizz);
 routes.post('/quizz/create', QuizzController.create);
