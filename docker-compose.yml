@@ -1,0 +1,30 @@
+version: "3.2"
+services: 
+    server:
+        build:
+            context: .
+        depends_on: 
+            - mysqltrivia
+        networks: 
+            - backend
+        environment: 
+            - SERVER_PORT=3000
+            - DB_HOST=mysqltrivia
+            - DB_USER=juanbotero
+            - DB_PASSWORD=maxi
+            - DB_NAME=triviaDb
+        volumes: 
+            - .:/app/server
+        ports: 
+            - "3000:3000"
+    mysqltrivia:
+        image: mysql:5.7
+        networks: 
+            - backend
+        environment: 
+            - MYSQL_ROOT_PASSWORD=my-secret-pw
+            - MYSQL_USER=juanbotero
+            - MYSQL_PASSWORD=maxi
+            - MYSQL_DATABASE=triviaDb
+networks: 
+    backend:
